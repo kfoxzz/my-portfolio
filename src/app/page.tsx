@@ -1,15 +1,19 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Navbar from './pages/navbar';
 
 export default function Home() {
   return (
     <main>
-      {/* need to set background image? */}
-      <Image src="next.svg" alt="hero image" width={1920} height={1080} />
-      <nav>
-        {/* navbar */}
-        {/* about me, resume, projects, contact me -> hash route to below sections */}
-        {/* navbar should be sticky, after scrolling background should be opaque */}
-      </nav>
+      <Image
+        src='/code.jpeg'
+        alt='hero image'
+        width={3840}
+        height={5760}
+        className='w-full max-h-full bg-center bg-cover blur-sm brightness-50 absolute'
+      />
+
+      <Navbar />
+
       <section>
         {/* hero */}
         {/* hi, I'm Kristi */}
