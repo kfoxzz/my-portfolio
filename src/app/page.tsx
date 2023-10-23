@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Navbar from './components/navbar';
+import Hero from './components/hero';
 
 export default function Home() {
   return (
@@ -14,12 +15,7 @@ export default function Home() {
 
       <Navbar />
 
-      <section>
-        {/* hero */}
-        {/* hi, I'm Kristi */}
-        {/* Software engineer */}
-        {/* button to about me */}
-      </section>
+      <Hero />
 
       <section>
         {/* about me */}

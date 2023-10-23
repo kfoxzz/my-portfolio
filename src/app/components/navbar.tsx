@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,7 +31,7 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   return (
-    <nav className='fixed p-4 flex justify-end w-full'>
+    <nav className='fixed p-4 flex justify-end w-full z-10'>
       <button
         className='w-10 h-10 relative focus:outline-none z-50'
         onClick={onToggleMobileMenu}
@@ -64,20 +64,20 @@ export default function Navbar() {
 
       <ul
         ref={dropdown}
-        className={`absolute left-0 top-0 p-8 py-16 w-full bg-black/[0.75] flex flex-col gap-3 items-center 
+        className={`absolute left-0 top-0 p-8 py-16 w-full bg-black/[0.95] flex flex-col gap-3 items-center 
         origin-top animate-open-menu ${!isMobileMenuOpen ? 'hidden' : ''}`}
       >
         <li className='border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50  hover:scale-110'>
-          About me
+          <a href='#about-me'>About me</a>
         </li>
         <li className='border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50  hover:scale-110'>
-          Resume
+          <a href='#resume'>Resume</a>
         </li>
         <li className='border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50  hover:scale-110'>
-          Projects
+          <a href='#projects'>Projects</a>
         </li>
         <li className='border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50  hover:scale-110'>
-          Contact me
+          <a href='#contact-me'>Contact me</a>
         </li>
       </ul>
 
