@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Navbar from './pages/navbar';
+import Navbar from './components/navbar';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
         alt='hero image'
         width={3840}
         height={5760}
-        className='w-full max-h-full bg-center bg-cover blur-sm brightness-50 absolute'
+        className='max-h-screen bg-center bg-cover object-cover blur-sm brightness-50 absolute'
       />
 
       <Navbar />
