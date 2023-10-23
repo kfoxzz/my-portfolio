@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolledToTop, setScrolledToTop] = useState(true);
   const dropdown = useRef(null);
   const closeIcon = useRef(null);
 
@@ -30,15 +31,29 @@ export default function Navbar() {
     return () => window.removeEventListener('click', handleClick);
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY !== 0) {
+        setScrolledToTop(false);
+      } else {
+        setScrolledToTop(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <nav className='fixed p-4 flex justify-end w-full z-10'>
       <button
-        className='w-10 h-10 relative focus:outline-none z-50'
+        className={`w-10 h-10 relative focus:outline-none z-50 ${scrolledToTop ? '' : 'bg-black/[0.95]'}`}
         onClick={onToggleMobileMenu}
         ref={closeIcon}
       >
         <span className='sr-only'>Open menu</span>
-        <div className='block w-5 absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2'>
+        <div className='block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2'>
           <span
             aria-hidden='true'
             className={`block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out ${
@@ -48,14 +63,14 @@ export default function Navbar() {
 
           <span
             aria-hidden='true'
-            className={`block absolute  h-0.5 w-5 bg-current   transform transition duration-500 ease-in-out ${
+            className={`block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out ${
               isMobileMenuOpen && 'opacity-0'
             }`}
           ></span>
 
           <span
             aria-hidden='true'
-            className={`block absolute  h-0.5 w-5 bg-current transform  transition duration-500 ease-in-out ${
+            className={`block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out ${
               isMobileMenuOpen ? '-rotate-45' : ' translate-y-1.5'
             }`}
           ></span>
@@ -63,6 +78,7 @@ export default function Navbar() {
       </button>
 
       <ul
+        onClick={onToggleMobileMenu}
         ref={dropdown}
         className={`absolute left-0 top-0 p-8 py-16 w-full bg-black/[0.95] flex flex-col gap-3 items-center 
         origin-top animate-open-menu ${!isMobileMenuOpen ? 'hidden' : ''}`}
@@ -80,8 +96,6 @@ export default function Navbar() {
           <a href='#contact-me'>Contact me</a>
         </li>
       </ul>
-
-      {/* navbar should be fixed, if top is more than 0 (ie: user has scrolled) bg should be opaque black */}
     </nav>
   );
 }
