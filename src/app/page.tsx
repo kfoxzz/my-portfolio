@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Navbar from './components/navbar';
 import Hero from './components/hero';
+import AboutMe from './components/aboutMe';
 
 export default function Home() {
   return (
@@ -14,13 +15,8 @@ export default function Home() {
       />
 
       <Navbar />
-
       <Hero />
-
-      <section>
-        {/* about me */}
-        {/* basically write resume summary, but make it more personable */}
-      </section>
+      <AboutMe />
 
       <section>
         {/* resume: link to PDF */}
