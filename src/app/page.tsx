@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Navbar from './components/navbar';
 import Hero from './components/hero';
 import AboutMe from './components/aboutMe';
+import Resume from './components/resume';
 
 export default function Home() {
   return (
@@ -17,11 +18,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <AboutMe />
-
-      <section>
-        {/* resume: link to PDF */}
-        {/* also write out information in resume */}
-      </section>
+      <Resume />
 
       <section>
         {/* projects */}
