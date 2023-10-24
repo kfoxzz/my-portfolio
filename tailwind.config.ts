@@ -21,10 +21,20 @@ const config: Config = {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(90deg)' },
         },
+        flip: {
+          '0%': { transform: 'rotateX(0deg)' },
+          '100%': { transform: 'rotateX(180deg)' },
+        },
+        'flip-reverse': {
+          '0%': { transform: 'rotateX(180deg)' },
+          '100%': { transform: 'rotateX(0deg)' },
+        },
       },
       animation: {
         'open-menu': 'open-menu 0.2s ease-in-out forwards',
         'spin-icon': 'spin-icon 0.2s ease-in-out forwards',
+        flip: 'flip 0.5s ease-in-out forwards',
+        'flip-reverse': 'flip-reverse 0.5s ease-in-out forwards',
       },
     },
   },
