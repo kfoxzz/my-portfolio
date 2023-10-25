@@ -13,18 +13,16 @@ export default function Position({ position }: { position: Position }) {
 
   return (
     <>
-      <h4 className='text-2xl pt-4 font-medium text-violet-500'>{position.title}</h4>
+      <div className='cursor-pointer' onClick={toggleOpen}>
+        <h4 className='text-2xl pt-4 font-medium text-violet-500'>{position.title}</h4>
 
-      <div className='flex justify-between items-center'>
-        <div>
-          <h4 className='text-lg'>{position.company}</h4>
-          <p className='text-sm italic'>{position.dates}</p>
+        <div className='flex justify-between items-center'>
+          <div>
+            <h4 className='text-lg'>{position.company}</h4>
+            <p className='text-sm italic'>{position.dates}</p>
+          </div>
+          <Arrow size={24} className={`${open ? 'animate-flip' : 'animate-flip-reverse'}`} />
         </div>
-        <Arrow
-          size={24}
-          onClick={toggleOpen}
-          className={`cursor-pointer ${open ? 'animate-flip' : 'animate-flip-reverse'}`}
-        />
       </div>
 
       <div className='overflow-hidden rounded-lg pt-4'>
