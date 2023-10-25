@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { Position } from '../lib/types/position';
+import type { Position } from '../lib/types';
 import { SlArrowDown as Arrow } from 'react-icons/sl';
 
 export default function Position({ position }: { position: Position }) {
