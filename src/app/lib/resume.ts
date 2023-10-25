@@ -1,4 +1,6 @@
-export const RESUME = [
+import type { Position } from './types';
+
+export const RESUME: Position[] = [
   {
     id: 0,
     title: 'Front End Engineer',

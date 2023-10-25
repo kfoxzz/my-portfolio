@@ -6,3 +6,10 @@ export type Position = {
   dates: string;
   items: string[];
 };
+
+export type Project = {
+  id: number;
+  name: string;
+  description: string;
+  github: string;
+};
