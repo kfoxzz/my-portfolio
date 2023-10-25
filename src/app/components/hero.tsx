@@ -7,7 +7,7 @@ export default function Hero() {
       <h2 className='text-2xl font-thin pb-16'>Software Engineer</h2>
 
       <a
-        className='bg-violet-500 text-black font-medium py-2 px-6 rounded hover:bg-violet-400'
+        className='bg-violet-500 text-black font-medium py-2 px-6 rounded hover:bg-violet-400 transition duration-300 ease-in-out'
         href='#about-me'
       >
         About me
