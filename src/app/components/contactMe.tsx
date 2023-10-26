@@ -6,9 +6,11 @@ import ContactForm from './contactForm';
 export default function ContactMe() {
   const [showForm, setShowForm] = useState(false);
 
-  const toggleForm = () => {
+  const onToggleForm = () => {
     setShowForm(!showForm);
   };
+
+  const onSubmitForm = () => {};
 
   return (
     <section id='contact-me' className='relative p-8 bg-zinc-800'>
@@ -20,14 +22,14 @@ export default function ContactMe() {
           className='text-violet-400 font-medium border-b border-violet-400 w-fit cursor-pointer hover:text-violet-500 hover:border-violet-500'
           onClick={ev => {
             ev.stopPropagation();
-            toggleForm();
+            onToggleForm();
           }}
         >
           Say hi
         </button>
       </div>
 
-      {showForm && <ContactForm closeForm={toggleForm} />}
+      {showForm && <ContactForm onCloseForm={onToggleForm} onSubmitForm={onSubmitForm} />}
     </section>
   );
 }
