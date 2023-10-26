@@ -7,13 +7,13 @@ import Projects from './components/projects';
 
 export default function Home() {
   return (
-    <main>
+    <main className='bg-zinc-900'>
       <Image
         src='/code.jpeg'
         alt='hero image'
         width={3840}
         height={5760}
-        className='max-h-screen bg-center bg-cover object-cover blur-sm brightness-50 absolute'
+        className='max-h-screen bg-center bg-cover object-cover blur-sm opacity-50 absolute'
       />
 
       <Navbar />

@@ -48,7 +48,7 @@ export default function Navbar() {
   return (
     <nav className='fixed p-4 flex justify-end w-full z-10'>
       <button
-        className={`w-10 h-10 relative focus:outline-none z-50 ${scrolledToTop ? '' : 'bg-black/[0.95]'}`}
+        className={`w-10 h-10 relative focus:outline-none z-50 ${scrolledToTop ? '' : 'bg-zinc-950/[0.95]'}`}
         onClick={onToggleMobileMenu}
         ref={closeIcon}
       >
@@ -80,7 +80,7 @@ export default function Navbar() {
       <ul
         onClick={onToggleMobileMenu}
         ref={dropdown}
-        className={`absolute left-0 top-0 p-8 py-16 w-full bg-black/[0.95] flex flex-col gap-3 items-center 
+        className={`absolute left-0 top-0 p-8 py-16 w-full bg-zinc-950/[0.95] flex flex-col gap-3 items-center 
         origin-top animate-open-menu ${!isMobileMenuOpen ? 'hidden' : ''}`}
       >
         <li className='border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50  hover:scale-110'>

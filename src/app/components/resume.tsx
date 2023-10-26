@@ -14,7 +14,7 @@ export default function Resume() {
         href='/resume.pdf'
         target='_blank'
         rel='noopener noreferrer'
-        className='w-fit text-sm bg-zinc-200 text-black font-medium py-2 mt-4 px-6 rounded inline-block hover:bg-zinc-400 transition duration-300 ease-in-out self-end'
+        className='w-fit self-end mt-6 text-sm font-medium border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50 duration-300  hover:scale-110'
       >
         Download resume
       </a>
