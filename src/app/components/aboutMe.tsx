@@ -1,6 +1,6 @@
 export default function AboutMe() {
   return (
-    <section id='about-me' className='relative p-8 pb-20 bg-black'>
+    <section id='about-me' className='relative p-8 pb-20 bg-zinc-900'>
       <h3 className='text-violet-500 pb-6'>ABOUT ME</h3>
 
       <p className='font-light pb-4'>

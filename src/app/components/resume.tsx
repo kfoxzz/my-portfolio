@@ -3,7 +3,7 @@ import Position from './position';
 
 export default function Resume() {
   return (
-    <section id='resume' className='relative p-8 pb-20 bg-black flex flex-col'>
+    <section id='resume' className='relative p-8 bg-zinc-800 flex flex-col'>
       <h3 className='text-violet-500 pb-4'>RESUME</h3>
 
       {RESUME.map((position, index) => {

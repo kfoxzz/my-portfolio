@@ -3,6 +3,7 @@ import Navbar from './components/navbar';
 import Hero from './components/hero';
 import AboutMe from './components/aboutMe';
 import Resume from './components/resume';
+import Projects from './components/projects';
 
 export default function Home() {
   return (
@@ -19,12 +20,7 @@ export default function Home() {
       <Hero />
       <AboutMe />
       <Resume />
-
-      <section>
-        {/* projects */}
-        {/* list projects with links to github and live site (if applicable) */}
-        {/* maybe add a carousel of images? */}
-      </section>
+      <Projects />
 
       <section>
         {/* contact me */}

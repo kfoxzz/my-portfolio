@@ -14,12 +14,12 @@ export default function Position({ position }: { position: Position }) {
   return (
     <>
       <div className='cursor-pointer' onClick={toggleOpen}>
-        <h4 className='text-2xl pt-4 font-medium text-violet-500'>{position.title}</h4>
+        <h4 className='text-xl pt-4 font-medium text-zinc-300'>{position.title}</h4>
 
         <div className='flex justify-between items-center'>
           <div>
-            <h4 className='text-lg'>{position.company}</h4>
-            <p className='text-sm italic'>{position.dates}</p>
+            <h4 className='text-lg text-zinc-400'>{position.company}</h4>
+            <p className='text-sm text-zinc-500 italic'>{position.dates}</p>
           </div>
           <Arrow size={24} className={`${open ? 'animate-flip' : 'animate-flip-reverse'}`} />
         </div>
@@ -27,7 +27,7 @@ export default function Position({ position }: { position: Position }) {
 
       <div className='overflow-hidden rounded-lg pt-4'>
         <ul
-          className={`p-4 text-sm flex flex-col gap-2 bg-neutral-800 rounded-lg transition-[margin] duration-700 delay-0 ease-in-out ${
+          className={`p-4 text-sm text-zinc-400 flex flex-col gap-2 bg-zinc-900 rounded-lg transition-[margin] duration-700 delay-0 ease-in-out ${
             open ? '-mt-[200%]' : 'm-0'
           }`}
         >
