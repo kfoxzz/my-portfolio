@@ -4,6 +4,7 @@ import Hero from './components/hero';
 import AboutMe from './components/aboutMe';
 import Resume from './components/resume';
 import Projects from './components/projects';
+import ContactMe from './components/contactMe';
 
 export default function Home() {
   return (
@@ -21,13 +22,7 @@ export default function Home() {
       <AboutMe />
       <Resume />
       <Projects />
-
-      <section>
-        {/* contact me */}
-        {/* form with name, email, message */}
-        {/* button to submit */}
-        {/* need to figure out what service to use */}
-      </section>
+      <ContactMe />
 
       <footer>
         {/* need to credit for hero photo
