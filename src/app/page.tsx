@@ -5,6 +5,7 @@ import AboutMe from './components/aboutMe';
 import Resume from './components/resume';
 import Projects from './components/projects';
 import ContactMe from './components/contactMe';
+import Footer from './components/footer';
 
 export default function Home() {
   return (
@@ -23,12 +24,7 @@ export default function Home() {
       <Resume />
       <Projects />
       <ContactMe />
-
-      <footer>
-        {/* need to credit for hero photo
-        Photo by <a href="https://unsplash.com/@agforl24?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Tai Bui</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-laptop-keyboard-with-a-blurry-background-EP634JhALnA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-   */}
-      </footer>
+      <Footer />
     </main>
   );
 }

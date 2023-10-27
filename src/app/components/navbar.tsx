@@ -92,6 +92,7 @@ export default function Navbar() {
         <li className='border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50  hover:scale-110'>
           <a href='#projects'>Projects</a>
         </li>
+        {/* TODO: this should open the modal, not link to #contact-me */}
         <li className='border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50  hover:scale-110'>
           <a href='#contact-me'>Contact me</a>
         </li>

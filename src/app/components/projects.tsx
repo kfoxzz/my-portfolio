@@ -16,6 +16,7 @@ export default function Projects() {
               <a
                 className='text-sm text-zinc-500 italic cursor-pointer w-fit hover:text-zinc-400 transition duration-300 ease-in-out'
                 href={project.github}
+                target='_blank'
               >
                 <Github size={28} />
               </a>
