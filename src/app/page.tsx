@@ -1,3 +1,4 @@
+import ModalProvider from './components/modalProvider';
 import Image from 'next/image';
 import Navbar from './components/navbar';
 import Hero from './components/hero';
@@ -18,13 +19,15 @@ export default function Home() {
         className='max-h-screen bg-center bg-cover object-cover blur-sm opacity-50 absolute'
       />
 
-      <Navbar />
-      <Hero />
-      <AboutMe />
-      <Resume />
-      <Projects />
-      <ContactMe />
-      <Footer />
+      <ModalProvider>
+        <Navbar />
+        <Hero />
+        <AboutMe />
+        <Resume />
+        <Projects />
+        <ContactMe />
+        <Footer />
+      </ModalProvider>
     </main>
   );
 }
