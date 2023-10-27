@@ -13,23 +13,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className='flex flex-col items-center gap-4 py-10 md:flex-row'>
-      {/* TODO: Add this about about me or in footer somewhere */}
-      {/* Photo by{' '}
-      <a
-        href='https://unsplash.com/@agforl24?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
-        className='cursor-pointer'
-      >
-        Tai Bui
-      </a>{' '}
-      on{' '}
-      <a
-        href='https://unsplash.com/photos/a-close-up-of-a-laptop-keyboard-with-a-blurry-background-EP634JhALnA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
-        className='cursor-pointer'
-      >
-        Unsplash
-      </a> */}
-      <ul className='text-zinc-600 text-sm text-center flex flex-col gap-2 md:order-2'>
+    <footer className='flex flex-col items-center gap-4 py-10 md:flex-row md:justify-evenly md:gap-0 md:items-start'>
+      <ul className='text-zinc-500 text-sm text-center flex flex-col gap-2 md:order-2 md:text-start'>
         <li>
           <a href='#about-me'>About me</a>
         </li>
@@ -43,7 +28,7 @@ export default function Footer() {
           <button onClick={toggleContactModal}>Contact me</button>
         </li>
       </ul>
-      <div className='flex flex-col gap-6 items-center md:order-1'>
+      <div className='flex flex-col gap-6 items-center md:order-1 md:items-start'>
         <a
           className='text-violet-500 border-b border-violet-500'
           href='mailto:me@kristizentner.com'
@@ -67,6 +52,23 @@ export default function Footer() {
             </a>
           </li>
         </ul>
+        <div className='text-xs text-zinc-600'>
+          Photo by{' '}
+          <a
+            href='https://unsplash.com/@agforl24?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
+            className='cursor-pointer hover:underline'
+          >
+            Tai Bui
+          </a>{' '}
+          on{' '}
+          <a
+            href='https://unsplash.com/photos/a-close-up-of-a-laptop-keyboard-with-a-blurry-background-EP634JhALnA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
+            className='cursor-pointer hover:underline'
+          >
+            Unsplash
+          </a>
+        </div>
+        <p className='text-xs text-zinc-400'>&#169; 2023. All Rights Reserved</p>
       </div>
     </footer>
   );
