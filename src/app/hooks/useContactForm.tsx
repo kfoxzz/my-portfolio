@@ -9,7 +9,7 @@ export default function useContactForm() {
     message: '',
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setValues(values => ({
       ...values,
       [e.target.name]: e.target.value,

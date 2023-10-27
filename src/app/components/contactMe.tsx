@@ -10,8 +10,6 @@ export default function ContactMe() {
     setShowForm(!showForm);
   };
 
-  const onSubmitForm = () => {};
-
   return (
     <section id='contact-me' className='relative p-8 bg-zinc-800'>
       <h3 className='text-violet-500 pb-6'>CONTACT ME</h3>
@@ -29,7 +27,7 @@ export default function ContactMe() {
         </button>
       </div>
 
-      {showForm && <ContactForm onCloseForm={onToggleForm} onSubmitForm={onSubmitForm} />}
+      {showForm && <ContactForm onCloseForm={onToggleForm} />}
     </section>
   );
 }

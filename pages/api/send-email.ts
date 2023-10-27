@@ -15,14 +15,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const { name, email, message } = req.body;
 
   const mailData = {
-    from: email,
+    from: process.env.FORWARDEMAIL_USERNAME,
     to: process.env.FORWARDEMAIL_USERNAME,
-    subject: `Message From ${name}`,
+    subject: `Message From Portfolio Website`,
     text: message,
-    html: `<div>${message}</div>`,
+    html: `<div>${message}
+            <br />
+            <br />
+            Name: ${name}
+            <br />
+            Email: ${email}
+          </div>`,
   };
 
   if (req.method === 'POST') {
+    console.log('POST SUCCESS');
     try {
       await transporter.sendMail(mailData);
       res.status(200).json({ status: 'Ok' });

@@ -1,15 +1,35 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
+import sendEmail from '../lib/sendEmail';
+import useContactForm from '../hooks/useContactForm';
 
-export default function ContactForm({
-  onCloseForm,
-  onSubmitForm,
-}: {
-  onCloseForm: () => void;
-  onSubmitForm: () => void;
-}) {
+export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const { values, handleChange } = useContactForm();
+
   const form = useRef(null);
   const closeIcon = useRef(null);
+
+  const onSubmit = async () => {
+    setError(null);
+    setLoading(true);
+
+    if (!values.email || !values.message || !values.name) {
+      setError('Please fill out all fields.');
+      setLoading(false);
+      return;
+    }
+
+    const res = await sendEmail(values);
+
+    if (res.status !== 200) {
+      setError('Something went wrong. Please try again.');
+    }
+
+    setLoading(false);
+  };
 
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
@@ -33,6 +53,11 @@ export default function ContactForm({
       <form
         ref={form}
         className='bg-zinc-800 h-fit m-auto p-4 rounded min-w-fit w-[75vw] max-w-[480px] flex flex-col'
+        onSubmit={ev => {
+          ev.preventDefault();
+          ev.stopPropagation();
+          onSubmit();
+        }}
       >
         <div className='flex justify-end pb-4'>
           <i ref={closeIcon} className='w-fit cursor-pointer'>
@@ -43,12 +68,24 @@ export default function ContactForm({
         <label htmlFor='name' className='text-xs mb-1'>
           Name
         </label>
-        <input type='text' name='name' id='name' className='text-sm mb-4 bg-zinc-700 rounded py-1 px-2' />
+        <input
+          type='text'
+          name='name'
+          id='name'
+          className='text-sm mb-4 bg-zinc-700 rounded py-1 px-2'
+          onChange={handleChange}
+        />
 
         <label htmlFor='email' className='text-xs mb-1'>
           Email
         </label>
-        <input type='text' name='email' id='email' className='text-sm mb-4 bg-zinc-700 rounded py-1 px-2' />
+        <input
+          type='text'
+          name='email'
+          id='email'
+          className='text-sm mb-4 bg-zinc-700 rounded py-1 px-2'
+          onChange={handleChange}
+        />
 
         <label htmlFor='message' className='text-xs mb-1'>
           Message
@@ -59,15 +96,14 @@ export default function ContactForm({
           cols={30}
           rows={5}
           className='text-sm mb-4 bg-zinc-700 rounded py-1 px-2'
+          onChange={handleChange}
         ></textarea>
+
+        {error && <p className='text-red-900'>{error}</p>}
 
         <button
           type='submit'
           className='self-end text-sm text-zinc-200 py-2 px-6 bg-violet-500 w-fit hover:bg-violet-400 rounded transition ease-in-out delay-50 duration-300'
-          onSubmit={ev => {
-            ev.preventDefault();
-            onSubmitForm();
-          }}
         >
           Send
         </button>
