@@ -1,8 +1,19 @@
+'use client';
+
+import { useContext, type MouseEvent } from 'react';
+import { ModalContext } from '../context/modalContext';
 import { FaGithubSquare as GithubIcon, FaLinkedin as LinkedInIcon } from 'react-icons/fa';
 
 export default function Footer() {
+  const { open, setOpen } = useContext(ModalContext);
+
+  const toggleContactModal = (ev: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+    ev.stopPropagation();
+    setOpen(!open);
+  };
+
   return (
-    <footer className='relative flex flex-col items-center gap-6 py-10'>
+    <footer className='flex flex-col items-center gap-6 py-10'>
       {/* TODO: Add this about about me or in footer somewhere */}
       {/* Photo by{' '}
       <a
@@ -28,9 +39,8 @@ export default function Footer() {
         <li>
           <a href='#projects'>Projects</a>
         </li>
-        {/* TODO: this should open the modal, not link to #contact-me */}
         <li>
-          <a href='#contact-me'>Contact me</a>
+          <button onClick={toggleContactModal}>Contact me</button>
         </li>
       </ul>
       <a
