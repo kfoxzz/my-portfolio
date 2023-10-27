@@ -7,7 +7,7 @@ import { FaGithubSquare as GithubIcon, FaLinkedin as LinkedInIcon } from 'react-
 export default function Footer() {
   const { open, setOpen } = useContext(ModalContext);
 
-  const toggleContactModal = (ev: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+  const toggleContactModal = (ev: MouseEvent) => {
     ev.stopPropagation();
     setOpen(!open);
   };

@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext, type MouseEvent } from 'react';
+import { ModalContext } from '../context/modalContext';
 
 export default function Navbar() {
+  const { open, setOpen } = useContext(ModalContext);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const dropdown = useRef(null);
@@ -12,10 +14,17 @@ export default function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const onToggleContactForm = (ev: MouseEvent) => {
+    ev.stopPropagation();
+    setIsMobileMenuOpen(false);
+    setOpen(!open);
+  };
+
   useEffect(() => {
     if (!isMobileMenuOpen) return;
 
-    const handleClick = (event: MouseEvent) => {
+    // NOTE: We must prepend "globalThis" to MouseEvent because we are importing MouseEvent from react, but we want to use the global MouseEvent type from the DOM API
+    const handleClick = (event: globalThis.MouseEvent) => {
       if (
         dropdown.current &&
         !(dropdown.current as HTMLElement).contains(event.target as HTMLElement) &&
@@ -92,9 +101,8 @@ export default function Navbar() {
         <li className='border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50  hover:scale-110'>
           <a href='#projects'>Projects</a>
         </li>
-        {/* TODO: this should open the modal, not link to #contact-me */}
         <li className='border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50  hover:scale-110'>
-          <a href='#contact-me'>Contact me</a>
+          <button onClick={onToggleContactForm}>Contact me</button>
         </li>
       </ul>
     </nav>
