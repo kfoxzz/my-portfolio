@@ -4,9 +4,9 @@ export default function AboutMe() {
       <h3 className='text-violet-500 pb-6'>ABOUT ME</h3>
 
       <p className='font-light pb-4'>
-        🚀 Greetings! I&rsquo;m Kristi Zentner. Dive into the world of coding, and you&rsquo;ll find me there,
-        wielding 2+ years of potent software engineering expertise. My arena? Crafting sleek, responsive
-        full-stack apps. My focus? Primarily React, JavaScript, and front-end technologies.
+        🚀 Greetings! I&rsquo;m Kristi Zentner, software engineer. With over two years under my belt,
+        I&rsquo;ve honed my skills in crafting robust, responsive full-stack applications. My main expertise?
+        React, JavaScript, and other front-end technologies.
       </p>
 
       <p className='font-light pb-4'>
@@ -16,8 +16,8 @@ export default function AboutMe() {
 
       <p className='font-light pb-4'>
         🌀 Having worked within agile frameworks, I appreciate the rhythm and structure it brings to
-        development. Always looking forward to growing and understanding more about this ever-evolving world
-        of tech, I&rsquo;m curious and excited about the paths ahead. Are you ready to join the adventure?
+        development. Always looking forward to growing and understanding more about the evolving world of
+        tech, I&rsquo;m curious and excited about the paths ahead.
       </p>
     </section>
   );
