@@ -1,13 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useContext } from 'react';
 import ContactForm from './contactForm';
+import { ModalContext } from '../context/modalContext';
 
 export default function ContactMe() {
-  const [showForm, setShowForm] = useState(false);
+  const { open, setOpen } = useContext(ModalContext);
 
   const onToggleForm = () => {
-    setShowForm(!showForm);
+    setOpen(!open);
   };
 
   return (
@@ -27,7 +28,7 @@ export default function ContactMe() {
         </button>
       </div>
 
-      {showForm && <ContactForm onCloseForm={onToggleForm} />}
+      {open && <ContactForm onCloseForm={onToggleForm} />}
     </section>
   );
 }
