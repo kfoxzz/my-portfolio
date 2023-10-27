@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
+import { CgSpinner as Spinner } from 'react-icons/cg';
 import sendEmail from '../lib/sendEmail';
 import useContactForm from '../hooks/useContactForm';
 
@@ -26,9 +27,11 @@ export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }
 
     if (res.status !== 200) {
       setError('Something went wrong. Please try again.');
+      setLoading(false);
+    } else {
+      setLoading(false);
+      onCloseForm();
     }
-
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -99,13 +102,22 @@ export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }
           onChange={handleChange}
         ></textarea>
 
-        {error && <p className='text-red-900'>{error}</p>}
+        {error && <p className='text-rose-900 text-xs mb-4 self-end'>{error}</p>}
 
         <button
           type='submit'
-          className='self-end text-sm text-zinc-200 py-2 px-6 bg-violet-500 w-fit hover:bg-violet-400 rounded transition ease-in-out delay-50 duration-300'
+          disabled={loading}
+          className={`flex items-center gap-2 self-end text-sm text-zinc-200 py-2 px-6 ${
+            loading ? 'bg-violet-400' : 'bg-violet-500'
+          } w-fit hover:bg-violet-400 rounded transition ease-in-out delay-50 duration-300`}
         >
-          Send
+          {loading ? (
+            <>
+              <Spinner className='animate-spin inline-block' size={18} /> Sending...
+            </>
+          ) : (
+            'Send'
+          )}
         </button>
       </form>
     </div>
