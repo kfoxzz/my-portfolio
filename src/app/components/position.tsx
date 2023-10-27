@@ -21,14 +21,14 @@ export default function Position({ position }: { position: Position }) {
             <h4 className='text-lg text-zinc-400'>{position.company}</h4>
             <p className='text-sm text-zinc-500 italic'>{position.dates}</p>
           </div>
-          <Arrow size={24} className={`${open ? 'animate-flip' : 'animate-flip-reverse'}`} />
+          <Arrow size={24} className={`${open ? 'animate-flip-reverse' : 'animate-flip'}`} />
         </div>
       </div>
 
       <div className='overflow-hidden rounded-lg pt-4'>
         <ul
           className={`p-4 text-sm text-zinc-400 flex flex-col gap-2 bg-zinc-900 rounded-lg transition-[margin] duration-700 delay-0 ease-in-out ${
-            open ? '-mt-[200%]' : 'm-0'
+            open ? 'm-0' : '-mt-[200%]'
           }`}
         >
           {position.items.map((item, index) => (
