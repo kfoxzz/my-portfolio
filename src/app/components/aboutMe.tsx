@@ -5,8 +5,8 @@ export default function AboutMe() {
 
       <p className='font-light pb-4'>
         🚀 Greetings! I&rsquo;m Kristi Zentner, software engineer. With over two years under my belt,
-        I&rsquo;ve honed my skills in crafting robust, responsive full-stack applications. My main expertise?
-        React, JavaScript, and other front-end technologies.
+        I&rsquo;ve honed my skills in crafting robust, responsive full-stack applications. My main expertise
+        is with React, JavaScript, and other front-end technologies.
       </p>
 
       <p className='font-light pb-4'>
