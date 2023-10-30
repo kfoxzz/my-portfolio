@@ -52,7 +52,7 @@ export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }
   }, []);
 
   return (
-    <div className='fixed z-1000 w-screen h-screen top-0 left-0 flex bg-zinc-900/[.75]'>
+    <div className='fixed z-1000 w-screen h-screen top-0 left-0 flex bg-zinc-900/[.75] animate-fade-in'>
       <form
         ref={form}
         className='bg-zinc-800 h-fit m-auto p-4 rounded min-w-fit w-[75vw] max-w-[480px] flex flex-col'

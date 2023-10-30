@@ -29,12 +29,17 @@ const config: Config = {
           '0%': { transform: 'rotateX(180deg)' },
           '100%': { transform: 'rotateX(0deg)' },
         },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         'open-menu': 'open-menu 0.2s ease-in-out forwards',
         'spin-icon': 'spin-icon 0.2s ease-in-out forwards',
         flip: 'flip 0.5s ease-in-out forwards',
         'flip-reverse': 'flip-reverse 0.5s ease-in-out forwards',
+        'fade-in': 'fade-in 0.2s ease-in-out forwards',
       },
     },
   },
