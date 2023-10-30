@@ -2,7 +2,7 @@ import { FaGithubSquare as GithubIcon, FaLinkedin as LinkedInIcon } from 'react-
 
 export default function Hero() {
   return (
-    <section className='relative p-8 pt-44 pb-24 lg:fixed lg:w-50 lg:z-[100] lg:h-full'>
+    <section className='relative p-8 pt-44 pb-24 lg:fixed lg:w-50 lg:h-full lg:flex lg:flex-col lg:justify-center lg:items-end lg:w-1/2'>
       <h1 className="text-7xl font-bold tracking-wide pb-6 after:content-['Kristi'] after:text-violet-500">
         Hi, I&rsquo;m{' '}
       </h1>
@@ -26,7 +26,7 @@ export default function Hero() {
       </div>
 
       <a
-        className='bg-violet-500 text-black font-medium py-2 px-6 rounded hover:bg-violet-400 transition duration-300 ease-in-out'
+        className='bg-violet-500 text-black font-medium py-2 px-6 rounded hover:bg-violet-400 transition duration-300 ease-in-out w-fit'
         href='#about-me'
       >
         About me

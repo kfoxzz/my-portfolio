@@ -4,7 +4,7 @@ export default function AboutMe() {
       id='about-me'
       className='relative p-8 pb-20 bg-zinc-900 lg:h-screen lg:snap-center lg:snap-always lg:flex lg:flex-col lg:justify-center'
     >
-      <h3 className='text-violet-500 pb-6'>ABOUT ME</h3>
+      <h3 className='text-violet-500 pb-6 lg:text-xl'>ABOUT ME</h3>
 
       <p className='font-light pb-4 lg:text-xl'>
         🚀 Greetings! I&rsquo;m Kristi Zentner, software engineer. With over two years under my belt,

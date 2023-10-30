@@ -57,7 +57,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className='fixed p-4 flex justify-end w-full z-10'>
+    <nav className={`fixed p-4 flex justify-end w-full z-10 ${open ? 'lg:z-0' : 'lg:z-[101]'}`}>
       {isMobileWidth ? (
         <>
           <button
@@ -115,7 +115,7 @@ export default function Navbar() {
       ) : (
         <>
           <ul
-            className={`absolute left-0 top-0 w-full py-6 px-8 flex gap-8 items-center justify-end lg:justify-start ${
+            className={`absolute left-0 top-0 w-full py-6 px-8 flex gap-8 items-center justify-end lg:justify-start${
               scrolledToTop ? '' : 'bg-zinc-950/[0.85]'
             }`}
           >

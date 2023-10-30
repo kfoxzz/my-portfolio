@@ -26,7 +26,7 @@ export default function Position({
 
       <div className='overflow-hidden rounded-lg pt-4'>
         <ul
-          className={`p-4 text-sm text-zinc-400 flex flex-col gap-2 bg-zinc-900 rounded-lg transition-[margin] duration-700 delay-0 ease-in-out ${
+          className={`p-4 text-sm lg:text-base text-zinc-400 flex flex-col gap-2 bg-zinc-900 rounded-lg transition-[margin] duration-700 delay-0 ease-in-out ${
             open ? 'm-0' : '-mt-[200%]'
           }`}
         >

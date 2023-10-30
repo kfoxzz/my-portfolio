@@ -27,7 +27,7 @@ export default function Resume() {
       id='resume'
       className='relative p-8 bg-zinc-800 flex flex-col lg:h-screen lg:snap-center lg:snap-always lg:flex lg:flex-col lg:justify-center'
     >
-      <h3 className='text-violet-500 pb-4'>RESUME</h3>
+      <h3 className='text-violet-500 pb-4 lg:text-xl'>RESUME</h3>
 
       {RESUME.map(position => {
         return (
