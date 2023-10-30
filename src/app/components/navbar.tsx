@@ -115,7 +115,7 @@ export default function Navbar() {
       ) : (
         <>
           <ul
-            className={`absolute left-0 top-0 w-full py-6 px-8 flex gap-8 items-center justify-end ${
+            className={`absolute left-0 top-0 w-full py-6 px-8 flex gap-8 items-center justify-end lg:justify-start ${
               scrolledToTop ? '' : 'bg-zinc-950/[0.85]'
             }`}
           >

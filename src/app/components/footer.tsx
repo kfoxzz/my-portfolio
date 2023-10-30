@@ -13,7 +13,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className='flex flex-col items-center gap-4 py-10 md:flex-row md:justify-evenly md:gap-0 md:items-start'>
+    <footer className='flex flex-col items-center gap-4 py-10 md:flex-row md:justify-evenly md:gap-0 md:items-start lg:h-screen lg:snap-center lg:snap-always'>
       <ul className='text-zinc-500 text-sm text-center flex flex-col gap-2 md:order-2 md:text-start'>
         <li>
           <a href='#about-me'>About me</a>

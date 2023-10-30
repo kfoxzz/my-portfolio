@@ -12,7 +12,7 @@ export default function ContactMe() {
   };
 
   return (
-    <section id='contact-me' className='relative p-8 bg-zinc-800'>
+    <section id='contact-me' className='relative p-8 bg-zinc-800 lg:h-screen lg:snap-center lg:snap-always'>
       <h3 className='text-violet-500 pb-6'>CONTACT ME</h3>
 
       <div className='flex flex-col gap-2'>
