@@ -1,19 +1,18 @@
-'use client';
-
-import { useState } from 'react';
 import type { Position } from '../lib/types';
 import { SlArrowDown as Arrow } from 'react-icons/sl';
 
-export default function Position({ position }: { position: Position }) {
-  const [open, setOpen] = useState(false);
-
-  const toggleOpen = () => {
-    setOpen(!open);
-  };
-
+export default function Position({
+  position,
+  onOpen,
+  open,
+}: {
+  position: Position;
+  onOpen: () => void;
+  open: boolean;
+}) {
   return (
     <>
-      <div className='cursor-pointer' onClick={toggleOpen}>
+      <div className='cursor-pointer' onClick={onOpen}>
         <h4 className='text-xl pt-4 font-medium text-zinc-300'>{position.title}</h4>
 
         <div className='flex justify-between items-center'>
