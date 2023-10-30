@@ -17,7 +17,8 @@ export default function useWindowResolution() {
     return () => window.removeEventListener('resize', handleWindowSizeChange);
   }, []);
 
-  const isMobileWidth = width <= 768;
+  const isMobileWidth = width < 768;
+  const isDesktopWidth = width >= 1024;
 
-  return { isMobileWidth };
+  return { isMobileWidth, isDesktopWidth };
 }
