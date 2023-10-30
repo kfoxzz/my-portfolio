@@ -27,8 +27,8 @@ export default function Home() {
           <Resume />
           <Projects />
           <ContactMe />
-          <Footer />
         </div>
+        <Footer />
       </ModalProvider>
     </main>
   );
