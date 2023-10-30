@@ -25,7 +25,7 @@ export default function Resume() {
   return (
     <section
       id='resume'
-      className='relative p-8 bg-zinc-800 flex flex-col lg:h-screen lg:snap-center lg:snap-always lg:flex lg:flex-col lg:justify-center'
+      className='relative p-8 bg-zinc-800 flex flex-col lg:h-screen lg:snap-center lg:snap-always lg:flex lg:flex-col lg:justify-center xl:px-24 2xl:px-36'
     >
       <h3 className='text-violet-500 pb-4 lg:text-xl'>RESUME</h3>
 

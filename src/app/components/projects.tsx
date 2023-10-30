@@ -6,7 +6,7 @@ export default function Projects() {
   return (
     <section
       id='projects'
-      className='relative p-8 bg-zinc-900 flex flex-col lg:h-screen lg:snap-center lg:snap-always lg:flex lg:justify-center'
+      className='relative p-8 bg-zinc-900 flex flex-col lg:h-screen lg:snap-center lg:snap-always lg:flex lg:justify-center xl:px-24 2xl:px-36'
     >
       <h3 className='text-violet-500 pb-8 lg:text-xl'>PROJECTS</h3>
 

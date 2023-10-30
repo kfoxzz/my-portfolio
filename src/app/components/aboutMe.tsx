@@ -2,7 +2,7 @@ export default function AboutMe() {
   return (
     <section
       id='about-me'
-      className='relative p-8 pb-20 bg-zinc-900 lg:h-screen lg:snap-center lg:snap-always lg:flex lg:flex-col lg:justify-center'
+      className='relative p-8 pb-20 bg-zinc-900 lg:h-screen lg:snap-center lg:snap-always lg:flex lg:flex-col lg:justify-center xl:px-24 2xl:px-36'
     >
       <h3 className='text-violet-500 pb-6 lg:text-xl'>ABOUT ME</h3>
 
