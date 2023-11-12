@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
+import { AiOutlineClose as CloseIcon, AiFillCheckCircle as Checkmark } from 'react-icons/ai';
 import { CgSpinner as Spinner } from 'react-icons/cg';
 import sendEmail from '../lib/sendEmail';
 import useContactForm from '../hooks/useContactForm';
@@ -7,6 +7,7 @@ import useContactForm from '../hooks/useContactForm';
 export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
 
   const { values, handleChange } = useContactForm();
 
@@ -29,7 +30,12 @@ export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }
       setError('Something went wrong. Please try again.');
       setLoading(false);
     } else {
+      const sleep = () => new Promise(resolve => setTimeout(resolve, 2000));
+
       setLoading(false);
+      setSuccess(true);
+
+      await sleep();
       onCloseForm();
     }
   };
@@ -104,21 +110,29 @@ export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }
 
         {error && <p className='text-rose-900 text-xs mb-4 self-end'>{error}</p>}
 
-        <button
-          type='submit'
-          disabled={loading}
-          className={`flex items-center gap-2 self-end text-sm text-zinc-200 py-2 px-6 ${
-            loading ? 'bg-violet-400' : 'bg-violet-500'
-          } w-fit hover:bg-violet-400 rounded transition ease-in-out delay-50 duration-300`}
-        >
-          {loading ? (
-            <>
-              <Spinner className='animate-spin inline-block' size={18} /> Sending...
-            </>
-          ) : (
-            'Send'
-          )}
-        </button>
+        {success ? (
+          <span
+            className={`flex items-center gap-2 self-end text-sm py-2 text-green-500 w-fit rounded transition ease-in-out delay-50 duration-300`}
+          >
+            <Checkmark size={18} /> Sent!
+          </span>
+        ) : (
+          <button
+            type='submit'
+            disabled={loading || success}
+            className={`flex items-center gap-2 self-end text-sm text-zinc-200 py-2 px-6 hover:bg-violet-400 ${
+              loading ? 'bg-violet-400' : success ? 'bg-green-600 hover:bg-green-700' : 'bg-violet-500'
+            } w-fit rounded transition ease-in-out delay-50 duration-300`}
+          >
+            {loading ? (
+              <>
+                <Spinner className='animate-spin inline-block' size={18} /> Sending...
+              </>
+            ) : (
+              'Send'
+            )}
+          </button>
+        )}
       </form>
     </div>
   );
