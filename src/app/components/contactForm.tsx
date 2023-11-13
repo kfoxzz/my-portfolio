@@ -3,11 +3,13 @@ import { AiOutlineClose as CloseIcon, AiFillCheckCircle as Checkmark } from 'rea
 import { CgSpinner as Spinner } from 'react-icons/cg';
 import sendEmail from '../lib/sendEmail';
 import useContactForm from '../hooks/useContactForm';
+import { sleep } from '../lib/utils';
 
 export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [animateOut, setAnimateOut] = useState(false);
 
   const { values, handleChange } = useContactForm();
 
@@ -30,14 +32,17 @@ export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }
       setError('Something went wrong. Please try again.');
       setLoading(false);
     } else {
-      const sleep = () => new Promise(resolve => setTimeout(resolve, 2000));
-
       setLoading(false);
       setSuccess(true);
-
-      await sleep();
+      await sleep(2000); // Pause so user can read success message
+      await animateFadeOut();
       onCloseForm();
     }
+  };
+
+  const animateFadeOut = async () => {
+    setAnimateOut(true);
+    await sleep(200);
   };
 
   useEffect(() => {
@@ -58,10 +63,14 @@ export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }
   }, []);
 
   return (
-    <div className='fixed z-1000 w-screen h-screen top-0 left-0 flex bg-zinc-900/[.75] animate-fade-in'>
+    <div
+      className={`fixed z-1000 w-screen h-screen top-0 left-0 flex bg-zinc-900/[.75] ${
+        animateOut ? 'animate-fade-out' : 'animate-fade-in'
+      }`}
+    >
       <form
         ref={form}
-        className='bg-zinc-800 h-fit m-auto p-4 rounded min-w-fit w-[75vw] max-w-[480px] flex flex-col'
+        className={`bg-zinc-800 h-fit m-auto p-4 rounded min-w-fit w-[75vw] max-w-[480px] flex flex-col`}
         onSubmit={ev => {
           ev.preventDefault();
           ev.stopPropagation();
