@@ -46,11 +46,12 @@ export default function ContactForm({ onCloseForm }: { onCloseForm: () => void }
   };
 
   useEffect(() => {
-    const handleClick = (event: MouseEvent) => {
+    const handleClick = async (event: MouseEvent) => {
       if (
         (form.current && !(form.current as HTMLElement).contains(event.target as HTMLElement)) ||
         (closeIcon.current && (closeIcon.current as HTMLElement).contains(event.target as HTMLElement))
       ) {
+        await animateFadeOut();
         onCloseForm();
       }
     };
