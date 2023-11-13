@@ -3,36 +3,55 @@
 import { useState, useEffect, useRef, useContext, type MouseEvent } from 'react';
 import { ModalContext } from '../context/modalContext';
 import useWindowResolution from '../hooks/useWindowResolution';
+import { sleep } from '../lib/utils';
 
 export default function Navbar() {
   const { isMobileWidth } = useWindowResolution();
   const { open, setOpen } = useContext(ModalContext);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolledToTop, setScrolledToTop] = useState(true);
+  const [animateOut, setAnimateOut] = useState(false);
   const dropdown = useRef(null);
   const closeIcon = useRef(null);
 
-  const onToggleMobileMenu = () => {
+  const onToggleMobileMenu = async () => {
+    if (isMobileMenuOpen) {
+      await animateCloseMenu();
+    } else {
+      setAnimateOut(false);
+    }
+
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const onToggleContactForm = (ev: MouseEvent) => {
+  const onToggleContactForm = async (ev: MouseEvent) => {
     ev.stopPropagation();
-    if (isMobileMenuOpen) setIsMobileMenuOpen(false);
+
+    if (isMobileMenuOpen) {
+      await animateCloseMenu();
+      setIsMobileMenuOpen(false);
+    }
+
     setOpen(!open);
+  };
+
+  const animateCloseMenu = async () => {
+    setAnimateOut(true);
+    await sleep(200);
   };
 
   useEffect(() => {
     if (!isMobileMenuOpen) return;
 
     // NOTE: We must prepend "globalThis" to MouseEvent because we are importing MouseEvent from react, but we want to use the global MouseEvent type from the DOM API
-    const handleClick = (event: globalThis.MouseEvent) => {
+    const handleClick = async (event: globalThis.MouseEvent) => {
       if (
         dropdown.current &&
         !(dropdown.current as HTMLElement).contains(event.target as HTMLElement) &&
         closeIcon.current &&
         !(closeIcon.current as HTMLElement).contains(event.target as HTMLElement)
       ) {
+        await animateCloseMenu();
         setIsMobileMenuOpen(false);
       }
     };
@@ -96,7 +115,9 @@ export default function Navbar() {
             onClick={onToggleMobileMenu}
             ref={dropdown}
             className={`absolute left-0 top-0 p-8 py-16 w-full bg-zinc-950/[0.95] flex flex-col gap-3 items-center 
-        origin-top animate-open-menu ${!isMobileMenuOpen ? 'hidden' : ''}`}
+        origin-top ${animateOut ? 'animate-close-menu' : 'animate-open-menu'} ${
+          !isMobileMenuOpen ? 'hidden' : ''
+        }`}
           >
             <li className='border-solid border-violet-500 border-b pb-px transition ease-in-out delay-50  hover:scale-110'>
               <a href='#about-me'>About me</a>

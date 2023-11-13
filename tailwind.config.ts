@@ -17,6 +17,10 @@ const config: Config = {
           '0%': { transform: 'scaleY(0)' },
           '100%': { transform: 'scaleY(1)' },
         },
+        'close-menu': {
+          '0%': { transform: 'scaleY(1)' },
+          '100%': { transform: 'scaleY(0)' },
+        },
         'spin-icon': {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(90deg)' },
@@ -40,6 +44,7 @@ const config: Config = {
       },
       animation: {
         'open-menu': 'open-menu 0.2s ease-in-out forwards',
+        'close-menu': 'close-menu 0.2s ease-in-out forwards',
         'spin-icon': 'spin-icon 0.2s ease-in-out forwards',
         flip: 'flip 0.5s ease-in-out forwards',
         'flip-reverse': 'flip-reverse 0.5s ease-in-out forwards',
