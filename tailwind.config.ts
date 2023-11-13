@@ -33,6 +33,10 @@ const config: Config = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        'fade-out': {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
       },
       animation: {
         'open-menu': 'open-menu 0.2s ease-in-out forwards',
@@ -40,6 +44,7 @@ const config: Config = {
         flip: 'flip 0.5s ease-in-out forwards',
         'flip-reverse': 'flip-reverse 0.5s ease-in-out forwards',
         'fade-in': 'fade-in 0.2s ease-in-out forwards',
+        'fade-out': 'fade-out 0.2s ease-in-out forwards',
       },
     },
   },
