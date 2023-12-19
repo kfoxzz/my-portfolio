@@ -29,7 +29,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   };
 
   if (req.method === 'POST') {
-    console.log('POST SUCCESS');
     try {
       await transporter.sendMail(mailData);
       res.status(200).json({ status: 'Ok' });
