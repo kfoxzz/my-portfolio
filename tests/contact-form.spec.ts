@@ -85,7 +85,7 @@ test('cannot submit contact form with missing fields', async ({ page }) => {
   expect(await page.isVisible(selectors.formFieldError)).toBe(true);
 });
 
-test.only('error message is displayed if contact form submission fails', async ({ page }) => {
+test('error message is displayed if contact form submission fails', async ({ page }) => {
   await page.route('**/api/send-email', route => {
     route.fulfill({
       status: 500,
