@@ -14,7 +14,16 @@ export default function Projects() {
         {PROJECTS.map((project: Project, index: number) => {
           return (
             <div key={index} className='flex flex-col pb-6 gap-1'>
-              <h4 className='text-zinc-300 font-medium text-xl pb-1 lg:text-3xl'>{project.name}</h4>
+              {project.link ? (
+                <a
+                  className='text-zinc-300 font-medium text-xl pb-1 lg:text-3xl hover:underline'
+                  href={project.link}
+                >
+                  {project.name}
+                </a>
+              ) : (
+                <h4 className='text-zinc-300 font-medium text-xl pb-1 lg:text-3xl'>{project.name}</h4>
+              )}
               <p className='text-sm lg:text-xl text-zinc-400 pb-1'>{project.description}</p>
               <a
                 className='text-sm text-zinc-500 italic cursor-pointer w-fit hover:text-zinc-400 transition duration-300 ease-in-out'
